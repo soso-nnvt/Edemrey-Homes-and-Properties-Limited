@@ -1,0 +1,7 @@
+{
+  "name": "Edemrey Homes & Properties",
+  "description": "Cultivating Legacies through strategic real estate investment and land banking in Nigeria.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
