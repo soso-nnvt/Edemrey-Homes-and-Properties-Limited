@@ -1,12 +1,20 @@
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ROICalculator from '../components/ROICalculator';
 import PathTimeline from '../components/PathTimeline';
+import SEO from '../components/SEO';
 import { BRAND_ASSETS } from '../constants';
 
 export default function Home() {
   return (
     <div className="bg-bone overflow-hidden">
+      <SEO 
+        title="Premier Real Estate Investment & Land Banking in Lagos"
+        description="Secure your future with Edemrey Homes. Expert land banking and smart city investments in Mowe, Ibeju-Lekki, and Lagos. RC-verified developer cultivating prosperity."
+        path="/"
+      />
+      
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Cinematic Video Overlay */}
@@ -14,6 +22,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-forest/40 z-10" />
           <video 
             src={BRAND_ASSETS.HERO_VIDEO} 
+            poster={BRAND_ASSETS.PROPERTIES[3]}
             autoPlay 
             muted 
             loop 
@@ -38,8 +47,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.2 }}
             className="text-white font-serif leading-tight mb-8 max-w-4xl mx-auto"
           >
-            WE DON’T JUST SELL LAND.<br />
-            <span className="italic text-gold">WE CULTIVATE PROSPERITY.</span>
+            Premier Real Estate Investment & <span className="italic text-gold">Land Banking in Lagos</span>
           </motion.h1>
           <motion.div
             initial={{ opacity: 0 }}
@@ -47,13 +55,13 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.8 }}
             className="flex flex-col md:flex-row items-center justify-center gap-6"
           >
-            <button className="bg-gold text-forest px-10 py-4 rounded-sm font-bold uppercase tracking-widest hover:bg-white transition-all flex items-center gap-3 group">
+            <Link to="/properties" className="bg-gold text-forest px-10 py-4 rounded-sm font-bold uppercase tracking-widest hover:bg-white transition-all flex items-center gap-3 group">
               Explore Portfolio
               <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
-            </button>
-            <button className="border border-white/30 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
+            </Link>
+            <Link to="/about" className="border border-white/30 text-white px-10 py-4 rounded-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all">
               Our Philosophy
-            </button>
+            </Link>
           </motion.div>
         </div>
 
@@ -73,10 +81,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-4xl md:text-6xl font-serif text-forest mb-8 leading-tight">
-              Land Banking: The <span className="text-gold italic">Seed</span> of Generational Wealth.
+              Land Banking Nigeria: The <span className="text-gold italic">Seed</span> of Generational Wealth.
             </h2>
             <p className="text-forest/70 text-lg leading-relaxed mb-8">
-              In the heart of Nigeria's fastest-growing economic corridors, we identify and secure land that doesn't just sit—it grows. Our strategic acquisitions in Mowe and Ibeju-Lekki are designed for the visionary investor.
+              In the heart of Nigeria's fastest-growing economic corridors, we identify and secure land that doesn't just sit—it grows. Our <Link to="/properties" className="text-gold underline hover:text-forest transition-colors">Smart City Investment</Link> opportunities in Mowe and Ibeju-Lekki are designed for the visionary investor looking for affordable plots in Mowe.
             </p>
             <div className="grid grid-cols-2 gap-8">
               <div>

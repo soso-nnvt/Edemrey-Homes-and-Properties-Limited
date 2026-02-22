@@ -1,10 +1,17 @@
 import { motion } from 'motion/react';
 import { MapPin, TrendingUp, Users, Award } from 'lucide-react';
+import SEO from '../components/SEO';
 import { BRAND_ASSETS, BUSINESS_INFO } from '../constants';
 
 export default function About() {
   return (
     <div className="pt-32 bg-bone">
+      <SEO 
+        title="About Our Visionary Team"
+        description="Learn about Edemrey Homes & Properties Limited. Our mission is to democratize land banking in Nigeria and cultivate legacies for all investors."
+        path="/about"
+        image={BRAND_ASSETS.VISIONARY}
+      />
       {/* Chairman's Statement */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">

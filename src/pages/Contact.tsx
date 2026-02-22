@@ -1,10 +1,16 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import SEO from '../components/SEO';
 import { BUSINESS_INFO } from '../constants';
 
 export default function Contact() {
   return (
     <div className="pt-32 bg-bone min-h-screen">
+      <SEO 
+        title="Contact Us - Start Your Land Banking Journey"
+        description="Get in touch with Edemrey Homes. Visit our Lagos headquarters or call us to start your real estate investment journey in Nigeria."
+        path="/contact"
+      />
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">

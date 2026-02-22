@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { MapPin, Ruler, ShieldCheck, PlayCircle, ArrowRight } from 'lucide-react';
 import { cn } from '../lib/utils';
+import SEO from '../components/SEO';
 import { BRAND_ASSETS } from '../constants';
 
 const properties = [
@@ -13,6 +14,7 @@ const properties = [
     status: "Pre-Launch Pricing",
     size: "500 SQM",
     image: BRAND_ASSETS.PROPERTIES[0],
+    alt: "Affordable plots in Mowe Golf Town by Edemrey Homes",
     highlight: true
   },
   {
@@ -23,6 +25,7 @@ const properties = [
     status: "Black Friday Deal",
     size: "600 SQM",
     image: BRAND_ASSETS.PROPERTIES[1],
+    alt: "Luxury real estate investment in Ibeju-Lekki Heritage Estate",
     highlight: false
   },
   {
@@ -33,6 +36,7 @@ const properties = [
     status: "Sold Out",
     size: "500 SQM",
     image: BRAND_ASSETS.PROPERTIES[2],
+    alt: "Sold out smart city investment at The Palms Residence Epe",
     highlight: false
   }
 ];
@@ -40,6 +44,11 @@ const properties = [
 export default function Properties() {
   return (
     <div className="pt-32 bg-bone">
+      <SEO 
+        title="Investment Portfolio - Land Banking Opportunities"
+        description="Explore our portfolio of high-yield land banking opportunities in Mowe, Ibeju-Lekki, and Epe. Secure your smart city investment today."
+        path="/properties"
+      />
       {/* Portfolio Header */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto text-center">
@@ -138,7 +147,7 @@ export default function Properties() {
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={prop.image} 
-                    alt={prop.name} 
+                    alt={prop.alt} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute top-4 left-4">

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /properties
+Disallow: /admin
+Disallow: /private
+
+Sitemap: https://edemreyhomes.com/sitemap.xml
