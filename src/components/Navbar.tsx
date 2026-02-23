@@ -15,10 +15,18 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+      
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      setScrollProgress(scrolled);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -38,6 +46,14 @@ export default function Navbar() {
         scrolled ? "bg-forest shadow-xl py-2" : "bg-transparent"
       )}
     >
+      {/* Progress Bar */}
+      <div className="absolute bottom-0 left-0 h-[2px] bg-white/30 w-full">
+        <motion.div 
+          className="h-full bg-white"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <img src={BRAND_ASSETS.LOGO} alt="Edemrey Homes" className="h-12 md:h-16 w-auto object-contain" />
