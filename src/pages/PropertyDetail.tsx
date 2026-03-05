@@ -36,11 +36,7 @@ export default function PropertyDetail() {
   useEffect(() => {
     const fetchProperty = async () => {
       try {
-        const response = await fetch(`http://demorealestate.iceiy.com/wp-json/wp/v2/property/${id}?_embed`, {
-          headers: {
-            'Authorization': `Basic ${process.env.WP_AUTH}`
-          }
-        });
+        const response = await fetch(`/.netlify/functions/properties?id=${id}`);
         if (!response.ok) throw new Error('Failed to fetch property details');
         const data = await response.json();
         setProperty(data);
