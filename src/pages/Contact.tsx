@@ -1,13 +1,9 @@
 import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { useSearchParams } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { BUSINESS_INFO } from '../constants';
 
 export default function Contact() {
-  const [searchParams] = useSearchParams();
-  const propertyName = searchParams.get('property');
-
   return (
     <div className="pt-32 bg-bone min-h-screen">
       <SEO 
@@ -96,16 +92,10 @@ export default function Contact() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-[10px] uppercase tracking-widest text-forest/60 font-bold">Preferred Location</label>
-                    <select 
-                      className="w-full bg-bone border border-forest/5 px-6 py-4 rounded-xl focus:outline-none focus:border-gold transition-colors appearance-none"
-                      defaultValue={propertyName || "Mowe Golf Town"}
-                    >
+                    <select className="w-full bg-bone border border-forest/5 px-6 py-4 rounded-xl focus:outline-none focus:border-gold transition-colors appearance-none">
                       <option>Mowe Golf Town</option>
                       <option>Ibeju-Lekki Heritage</option>
                       <option>Epe Palms</option>
-                      {propertyName && !["Mowe Golf Town", "Ibeju-Lekki Heritage", "Epe Palms"].includes(propertyName) && (
-                        <option>{propertyName}</option>
-                      )}
                     </select>
                   </div>
                   <div className="space-y-2">
@@ -124,7 +114,6 @@ export default function Contact() {
                   <textarea 
                     rows={4}
                     placeholder="Tell us about your investment goals..."
-                    defaultValue={propertyName ? `I am interested in ${propertyName}. Please provide more details.` : ""}
                     className="w-full bg-bone border border-forest/5 px-6 py-4 rounded-xl focus:outline-none focus:border-gold transition-colors resize-none"
                   ></textarea>
                 </div>
